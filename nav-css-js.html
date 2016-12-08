@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <style type="text/css">
+            body{
+                font-family: arial;
+                font-size: 12px;
+            }
+            /* Reset default style of ul and li element */
+            ul,li, ul li a{
+                float:left;
+                width:auto;
+                height:auto;
+                list-style:none;
+                margin:0px;
+                padding:0px;
+               
+                
+            }
+            .nav{
+                background-color: #003471;
+            }
+            .nav li a{
+                color:#FFF;
+                padding:10px 15px;
+                text-decoration: none;
+            }
+            /* applying style for sub nav */
+            .nav li{
+                position: relative;
+            }
+            .nav ul{
+                position:absolute;
+                top:34px;
+                width:200px;
+                height:auto;
+                background-color: #000;
+                display: none;
+            }
+            .nav ul li, .nav ul li{
+                width:100%;
+            }
+        </style>
+        <script type="text/javascript">
+            var nav={
+                init:function(){
+                    jQuery('.nav>li')
+                    .mouseenter(function(){
+                        jQuery(this).find('ul').slideDown();
+                    })
+                    .mouseleave(function(){
+                        jQuery(this).find('ul').slideUp();
+                    })
+                }
+            }
+        jQuery(function(){
+            nav.init();
+        })    
+        </script>
+    </head>
+    <body>
+        <ul class="nav">
+            <li><a href="javascript:void(0)">Test Nav</a>
+                <ul>
+                    <li><a href="#">Sub Test1 </a></li>
+                    <li><a href="#">Sub Test2 </a></li>
+                    <li><a href="#">Sub Test3 </a></li>
+                </ul>
+            </li>
+        </ul>
+        
+    </body>
+</html>

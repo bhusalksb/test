@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <style type="text/css">
+            body{
+                font-family: arial;
+                font-size: 12px;
+            }
+            input{
+                float:left;
+                height: auto;
+                width:200px;
+                padding:10px;
+            }
+            #answer,#answer1{
+                width:200px;
+                float:left;
+                height:auto;
+                padding:10px;
+                border:2px dashed #F5F5F5;
+            }
+        </style>
+        <script type="text/javascript">
+            var Sum={
+                timer:null,
+                init:function(){
+                    jQuery('#value')
+                    .keyup(function(){
+                        try{
+                            clearTimeout(timer);
+                        }catch(e){}
+                        timer=setTimeout(function(){
+                            var val=parseInt(jQuery("#value").val());
+                            if(val>2){
+                                var str='';
+                                for(var i=1; i<=val; i++){
+                                    if((i%3==0) && (i%5==0))
+                                  str+=i+'<br/>'  
+                                }
+                                jQuery("#answer").empty().append(str)
+                            }else{
+                                jQuery("#answer").empty().append("Please provide any number grater than 3")
+                            }
+                        },100)
+                        
+                    })
+                    jQuery('#value1')
+                    .keyup(function(){
+                        try{
+                            clearTimeout(timer);
+                        }catch(e){}
+                        timer=setTimeout(function(){
+                            var val=parseInt(jQuery("#value1").val());
+                            if(val>2){
+                                var str='';
+                                for(var i=1; i<=val; i++){
+                                    if((i%3==0) || (i%5==0))
+                                  str+=i+'<br/>'  
+                                }
+                                jQuery("#answer1").empty().append(str)
+                            }else{
+                                jQuery("#answer1").empty().append("Please provide any number grater than 3")
+                            }
+                        },100)
+                        
+                    })
+                    
+                }
+            }
+        jQuery(function(){
+            Sum.init();
+        })    
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>
+                    Sum of 3 and 5
+                </th>
+                <th>
+                    Sum of 3 or 5
+                </th>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <table>
+                        <tr>
+                            <td><input type="text" id="value"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <div id="answer">Give any number</div> 
+                            </td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table>
+                        <tr>
+                            <td><input type="text" id="value1"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <div id="answer1">Give any number</div> 
+                            </td>
+
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
